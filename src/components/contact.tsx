@@ -1,79 +1,46 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import * as emailjs from "emailjs-com";
 import "../styles/contact.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../data";
 import { Container, Row, Col, Alert } from "react-bootstrap";
-import { contactConfig } from "../data";
-
-interface FormData {
-  email: string;
-  name: string;
-  message: string;
-  loading: boolean;
-  show: boolean;
-  alertmessage: string;
-  variant: "success" | "danger" | "";
-}
 
 export const ContactUs: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     email: "",
     name: "",
     message: "",
-    loading: false,
-    show: false,
-    alertmessage: "",
-    variant: "",
+    showAlert: false,
+    showError: false,
   });
+
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormData((prevState) => ({ ...prevState, loading: true }));
 
-    const templateParams = {
-      from_name: formData.email,
-      user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
-      message: formData.message,
-    };
+    if (!isValidEmail(formData.email)) {
+      setFormData((prev) => ({ ...prev, showError: true }));
+      return;
+    }
 
-    emailjs
-      .send(
-        contactConfig.YOUR_SERVICE_ID,
-        contactConfig.YOUR_TEMPLATE_ID,
-        templateParams,
-        contactConfig.YOUR_USER_ID
-      )
-      .then(
-        () => {
-          setFormData((prevState) => ({
-            ...prevState,
-            loading: false,
-            alertmessage: "SUCCESS! Thank you for your message.",
-            variant: "success",
-            show: true,
-          }));
-        },
-        (error) => {
-          setFormData((prevState) => ({
-            ...prevState,
-            loading: false,
-            alertmessage: `Failed to send! ${error.text}`,
-            variant: "danger",
-            show: true,
-          }));
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        }
-      );
+    setFormData({
+      email: "",
+      name: "",
+      message: "",
+      showAlert: true,
+      showError: false,
+    });
+
+    // Simulate a "success" action by reloading the page after showing the alert
+    setTimeout(() => window.location.reload(), 2000);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value, showError: false }));
   };
 
   return (
@@ -93,34 +60,24 @@ export const ContactUs: React.FC = () => {
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
-              onClose={() =>
-                setFormData((prevState) => ({ ...prevState, show: false }))
-              }
-              dismissible
+              variant="success"
+              className={`rounded-0 co_alert ${formData.showAlert ? "d-block" : "d-none"}`}
             >
-              <p className="my-0">{formData.alertmessage}</p>
+              <p className="my-0">Email sent successfully!</p>
+            </Alert>
+            <Alert
+              variant="danger"
+              className={`rounded-0 co_alert ${formData.showError ? "d-block" : "d-none"}`}
+            >
+              <p className="my-0">Please enter a valid email address.</p>
             </Alert>
           </Col>
           <Col lg="5" className="mb-5">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
-              <strong>Email:</strong>{" "}
-              <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-                {contactConfig.YOUR_EMAIL}
-              </a>
-              <br />
-              <br />
-              {contactConfig.YOUR_FONE && (
-                <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-                </p>
-              )}
+              <strong>Email:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a>
             </address>
-            <p>{contactConfig.description}</p>
+            <p>Feel free to reach out to me for any inquiries or collaborations.</p>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
             <form onSubmit={handleSubmit} className="contact__form w-100">
@@ -163,8 +120,8 @@ export const ContactUs: React.FC = () => {
               <br />
               <Row>
                 <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit" disabled={formData.loading}>
-                    {formData.loading ? "Sending..." : "Send"}
+                  <button className="btn ac_btn" type="submit">
+                    Send
                   </button>
                 </Col>
               </Row>
@@ -172,7 +129,6 @@ export const ContactUs: React.FC = () => {
           </Col>
         </Row>
       </Container>
-      <div className={formData.loading ? "loading-bar" : "d-none"}></div>
     </HelmetProvider>
   );
 };

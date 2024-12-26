@@ -8,10 +8,9 @@ interface Meta {
     animated: {
       first: string;
       second: string;
-      third: string;
     };
     description: string;
-    your_img_url: string;
+    img_url: string;
   }
   
   interface DataAbout {
@@ -42,12 +41,12 @@ interface Meta {
   }
   
   interface ContactConfig {
-    YOUR_EMAIL: string;
-    YOUR_FONE: string;
+    EMAIL: string;
+    FONE: string;
     description: string;
-    YOUR_SERVICE_ID: string;
-    YOUR_TEMPLATE_ID: string;
-    YOUR_USER_ID: string;
+    SERVICE_ID: string;
+    TEMPLATE_ID: string;
+    USER_ID: string;
   }
   
   interface SocialProfiles {
@@ -68,46 +67,37 @@ interface Meta {
     title: "I’m alhareth anmar",
     animated: {
       first: "I love coding",
-      second: "I code cool websites",
-      third: "I develop with React",
+      second: "I code cool websites"
     },
-    description: "Computer scientist, full-stack developer, creating user-friendly and easy-to-handle websites.",
-    your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
+    description: "Computer scientist, front-end developer, creating user-friendly and easy-to-handle websites.",
+    img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
   };
   
   const dataabout: DataAbout = {
-    title: "A bit about myself",
+    title: "Who am I?",
     aboutme:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
+      "I am Alhareth Anmar, a passionate and driven individual on a journey of growth and learning. My story began after graduating from KASSE with a GPA that taught me an important life lesson: being smart alone is not enough. This realization marked a turning point, and I chose IT->CS as my major at AABU, determined to put in real effort this time. Starting with C++ as my first programming language, I dove into the world of programming through Codeforces, mastering the basics before advancing to STL, OOP, data structures, and algorithm design and analysis. Once I built a solid foundation, I focused on specialization, choosing web development as my path. Recently, I completed the first phase of this journey—frontend development using React and TypeScript—and I am now preparing to delve into backend development. The journey is far from over, and I am excited to continue exploring and growing in this field.",
   };
   
   const worktimeline: WorkTimeline[] = [
-    { jobtitle: "Designer of the Week", where: "YAdfi", date: "2020" },
-    { jobtitle: "Designer of the Week", where: "Jamalya", date: "2019" },
-    { jobtitle: "Designer of the Week", where: "ALquds", date: "2019" },
+    { jobtitle: "full-stack trainee", where: "SDK", date: "2024-2025" },
+    { jobtitle: "###", where: "###", date: "20##" },
+    { jobtitle: "###", where: "###", date: "20##" },
   ];
   
   const skills: Skill[] = [
-    { name: "Python", value: 90 },
-    { name: "Django", value: 85 },
-    { name: "JavaScript", value: 80 },
-    { name: "React", value: 60 },
-    { name: "jQuery", value: 85 },
+    { name: "javascript & typescript", value: 70 },
+    { name: "raect", value: 70 },
+    { name: "c++", value: 60 },
+    { name: "english", value: 80 },
+    { name: "team work", value: 75 },
   ];
   
   const services: Service[] = [
     {
-      title: "UI & UX Design",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
-    {
-      title: "Mobile Apps",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
-    {
-      title: "WordPress Design",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
+      title: "front-end development",
+      description: "Creating a user-facing part of a website or application—the portion that users interact with directly.",
+    }
   ];
   
   const dataportfolio: PortfolioItem[] = [
@@ -126,13 +116,13 @@ interface Meta {
   ];
   
   const contactConfig: ContactConfig = {
-    YOUR_EMAIL: "name@domain.com",
-    YOUR_FONE: "(555) 123-4567",
+    EMAIL: "harethanmar24@gmail.com",
+    FONE: "(+962)788-264-899",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra.",
-    YOUR_SERVICE_ID: "service_id",
-    YOUR_TEMPLATE_ID: "template_id",
-    YOUR_USER_ID: "user_id",
+      "Feel free to reach out! Whether you have a question, a project idea, or just want to connect, I’d love to hear from you.",
+    SERVICE_ID: "service_id",
+    TEMPLATE_ID: "template_id",
+    USER_ID: "user_id",
   };
   
   const socialprofils: SocialProfiles = {

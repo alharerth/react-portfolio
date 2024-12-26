@@ -21,7 +21,7 @@ export const Home: React.FC = () => {
           {/* Background Image */}
           <div
             className="h_bg-image order-1 order-lg-2 h-100"
-            style={{ backgroundImage: `url(${introdata.your_img_url})` }}
+            style={{ backgroundImage: `url(${introdata.img_url})` }}
           ></div>
 
           {/* Text Content */}
@@ -38,7 +38,6 @@ export const Home: React.FC = () => {
                       strings: [
                         introdata.animated.first,
                         introdata.animated.second,
-                        introdata.animated.third,
                       ],
                       autoStart: true,
                       loop: true,
@@ -55,7 +54,7 @@ export const Home: React.FC = () => {
                   {/* Portfolio Button */}
                   <Link to="/portfolio" className="text_2">
                     <div id="button_p" className="ac_btn btn">
-                      My Portfolio
+                      My Projects
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>

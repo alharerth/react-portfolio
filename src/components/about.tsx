@@ -5,16 +5,16 @@ import { Container, Row, Col } from "react-bootstrap";
 import {
   dataabout,
   meta,
-  worktimeline,
+   worktimeline,
   skills,
   services,
 } from "../data";
 
-type WorkTimeline = {
-  jobtitle: string;
-  where: string;
-  date: string;
-};
+ type WorkTimeline = {
+   jobtitle: string;
+   where: string;
+   date: string;
+ };
 
 type Skill = {
   name: string;
@@ -58,7 +58,7 @@ export const About: React.FC = () => {
         </Row>
 
         {/* Work Timeline Section */}
-        <Row className="sec_sp">
+         <Row className="sec_sp">
           <Col lg="5">
             <h3 className="color_sec py-4">Work Timeline</h3>
           </Col>
@@ -75,7 +75,7 @@ export const About: React.FC = () => {
               </tbody>
             </table>
           </Col>
-        </Row>
+        </Row> 
 
         {/* Skills Section */}
         <Row className="sec_sp">

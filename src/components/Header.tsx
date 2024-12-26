@@ -40,7 +40,7 @@ const Headermain: React.FC = () => {
                   </li>
                   <li className="menu_item">
                     <Link onClick={handleToggle} to="/portfolio" className="my-3">
-                      Portfolio
+                      Projects
                     </Link>
                   </li>
                   <li className="menu_item">
