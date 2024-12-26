@@ -75,7 +75,7 @@ export const ContactUs: React.FC = () => {
           <Col lg="5" className="mb-5">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
-              <strong>Email:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a>
+              <strong>Email:</strong> <a href="mailto:harethanmar24@gmail.com">harethanmar24@gmail.com</a>
             </address>
             <p>Feel free to reach out to me for any inquiries or collaborations.</p>
           </Col>

@@ -1,3 +1,4 @@
+import profileImage from "./images/profile.jpeg";
 interface Meta {
     title: string;
     description: string;
@@ -55,14 +56,14 @@ interface Meta {
     linkedin: string;
     twitter: string;
   }
-  
+
   const logotext = "alhareth";
   
   const meta: Meta = {
     title: "alhareth anmar",
     description: "I’m alhareth anmar, a computer scientist and full-stack developer.",
   };
-  
+
   const introdata: IntroData = {
     title: "I’m alhareth anmar",
     animated: {
@@ -70,7 +71,7 @@ interface Meta {
       second: "I code cool websites"
     },
     description: "Computer scientist, front-end developer, creating user-friendly and easy-to-handle websites.",
-    img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
+    img_url: profileImage,
   };
   
   const dataabout: DataAbout = {
